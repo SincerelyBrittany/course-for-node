@@ -11,11 +11,15 @@ export const listNotes = () => {
 
 export const addNotes = (title, body) => {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter((note) => {
+  // const duplicateNotes = notes.filter((note) => {
+  //   return note.title === title;
+  // });
+
+  const duplicateNoteSingular = notes.find((note) => {
     return note.title === title;
   });
 
-  if (duplicateNotes.length === 0) {
+  if (!duplicateNoteSingular) {
     notes.push({
       title: title,
       body: body,
@@ -54,5 +58,19 @@ const loadNotes = () => {
     return JSON.parse(dataJSON);
   } catch (error) {
     return [];
+  }
+};
+
+export const readNote = (title) => {
+  const notes = loadNotes();
+  const searchedNote = notes.find((note) => {
+    return note.title === title;
+  });
+
+  if (searchedNote) {
+    console.log(chalk.red.inverse("Title:", searchedNote.title));
+    console.log("Text:", searchedNote.body);
+  } else {
+    console.log(chalk.red.inverse("No Note Found!"));
   }
 };
