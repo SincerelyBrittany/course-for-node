@@ -1,9 +1,6 @@
 import "./addRequire.js";
 import validator from "validator";
 import yargs from "yargs";
-import chalk from "chalk";
-// const addNotes = require("./notes.js");
-// import { getNotes, addNotes } from "./notes.js";
 import * as note from "./notes.js";
 
 // add notes, remove notes, read notes, list notes
@@ -63,25 +60,3 @@ yargs.command({
 });
 
 yargs.parse();
-
-// console.log(process.argv);
-// console.log(yargs.argv);
-
-// const getNotes = require("./notes");
-
-// const command = process.argv[2];
-
-// if (command === "add") {
-//   console.log("you are here");
-// }
-
-// switch (command) {
-//   case "add":
-//     console.log("add");
-//     break;
-//   case "remove":
-//     console.log("remove");
-//     break;
-//   default:
-//     console.log("What would you like to do?");
-// }
