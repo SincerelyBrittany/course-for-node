@@ -1,12 +1,27 @@
-// const validator = require("validator");
 import validator from "validator";
+import yargs from "yargs";
 import chalk from "chalk";
+import getNotes from "./notes.js";
+
+
+
+
 
 // const getNotes = require("./notes");
 
-// console.log(getNotes());
+// const command = process.argv[2];
 
-console.log(validator.isEmail("email@gmail"));
-console.log(chalk.green("Success"));
-console.log(chalk.green("Success"));
+// if (command === "add") {
+//   console.log("you are here");
+// }
 
+// switch (command) {
+//   case "add":
+//     console.log("add");
+//     break;
+//   case "remove":
+//     console.log("remove");
+//     break;
+//   default:
+//     console.log("What would you like to do?");
+// }

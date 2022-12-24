@@ -122,3 +122,39 @@ https://stackoverflow.com/questions/35530930/nodemon-not-working-bash-nodemon-co
 terminate nodeman by pressing `ctrl + c`
 
 # Part Eight- Add Nodeman to restart script instantly
+
+notes-app/app.js
+
+```
+console.log(process.argv);
+```
+
+terminal:
+
+`node app.js SincerelyBrittany`
+
+_Returns_
+[
+'/usr/local/bin/node',
+'/Users/sincerelybrittany/Documents/code/node-course/notes-app/app.js',
+'SincerelyBrittany'
+]
+
+// the path to the node.js executable on your machine,
+// 2nd path to app.js file
+// 3rd is the value that we provided
+
+### To get the value:
+
+console.log(process.argv[2]);
+
+`node app.js SincerelyBrittany`
+
+_Returns_
+'SincerelyBrittany'
+
+# Part 9 - Parsing through our command line arguments
+
+https://www.npmjs.com/package/yargs
+
+npm i yargs
