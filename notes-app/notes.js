@@ -1,13 +1,17 @@
 const fs = require("fs");
 import chalk from "chalk";
 
-export const getNotes = () => {
-  return "Your notes. . .";
+export const listNotes = () => {
+  const notes = loadNotes();
+  console.log(chalk.green.inverse("Your Notes!"));
+  notes.forEach((note) => {
+    console.log(note.title);
+  });
 };
 
 export const addNotes = (title, body) => {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter(function (note) {
+  const duplicateNotes = notes.filter((note) => {
     return note.title === title;
   });
 
@@ -31,7 +35,7 @@ const saveNotes = (notes) => {
 
 export const removeNotes = (title) => {
   const notes = loadNotes();
-  const notesToKeep = notes.filter(function (note) {
+  const notesToKeep = notes.filter((note) => {
     return note.title !== title;
   });
 
