@@ -19,6 +19,8 @@ export const addNotes = (title, body) => {
     return note.title === title;
   });
 
+  // debugger;
+
   if (!duplicateNoteSingular) {
     notes.push({
       title: title,

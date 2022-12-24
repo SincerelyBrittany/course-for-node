@@ -204,3 +204,17 @@ yargs.version("1.1.0");
 // I am trying to run yargs command, and it is not working
 
 https://stackoverflow.com/questions/56313940/i-am-trying-to-run-yargs-command-and-it-is-not-working
+
+# Debugging
+
+Console.log
+
+Use a debugger
+
+then run `node inspect app.js add --title="newdsdl" --body="hello"`
+
+then visit chrome://inspect in chrome
+
+You can restart using `debug> restart`
+
+and you can close the debugger by running ctrl + c twice
