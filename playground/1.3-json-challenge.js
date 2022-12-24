@@ -3,7 +3,7 @@ const fs = require("fs");
 Challenge Below
 */
 
-const dataBuffer = fs.readFileSync("3-json.json");
+const dataBuffer = fs.readFileSync("1.3-json.json");
 const dataJson = dataBuffer.toString();
 const data = JSON.parse(dataJson);
 

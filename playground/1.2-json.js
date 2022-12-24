@@ -17,7 +17,7 @@ fs.writeFileSync("2-json.json", bookJson);
  Reads the json file that contains the title and author and parses through the data.
 */
 
-const dataBuffer = fs.readFileSync("2-json.json");
+const dataBuffer = fs.readFileSync("1.2-json.json");
 const dataJson = dataBuffer.toString();
 const data = JSON.parse(dataJson);
 
