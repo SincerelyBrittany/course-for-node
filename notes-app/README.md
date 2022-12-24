@@ -158,3 +158,49 @@ _Returns_
 https://www.npmjs.com/package/yargs
 
 npm i yargs
+
+### Example without Yargs:
+
+console.log(process.argv);
+
+_returns_
+
+```
+[
+  '/usr/local/bin/node',
+  '/Users/sincerelybrittany/Documents/code/node-course/notes-app/app.js',
+  'add',
+  '--title=hello'
+]
+```
+
+### Example with Yargs
+
+import yargs from "yargs";
+
+console.log(yargs.argv);
+
+_returns_
+
+```
+{ _: [ 'add' ], title: 'hello', '$0': 'app.js' }
+```
+
+#### to get help with yargs in terminal run:
+
+node app.js --help
+
+_returns_
+
+```
+Options:
+  --help     Show help                                                 [boolean]
+  --version  Show version number                                       [boolean]
+```
+
+// customize yargs version
+yargs.version("1.1.0");
+
+// I am trying to run yargs command, and it is not working
+
+https://stackoverflow.com/questions/56313940/i-am-trying-to-run-yargs-command-and-it-is-not-working
