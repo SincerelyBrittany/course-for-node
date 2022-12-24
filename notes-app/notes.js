@@ -4,7 +4,7 @@ export const getNotes = function () {
   return "Your notes. . .";
 };
 
-export const addNote = function (title, body) {
+export const addNotes = function (title, body) {
   const notes = loadNotes();
   notes.push({
     title: title,
@@ -30,4 +30,7 @@ const loadNotes = function () {
 };
 
 // export default getNotes;
-// module.exports = getNotes;
+// module.exports = {
+//   getNotes: getNotes,
+//   addNotes: addNotes,
+// };

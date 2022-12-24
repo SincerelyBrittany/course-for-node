@@ -1,6 +1,8 @@
+import "./addRequire.js";
 import validator from "validator";
 import yargs from "yargs";
 import chalk from "chalk";
+// const addNotes = require("./notes.js");
 // import { getNotes, addNotes } from "./notes.js";
 import * as note from "./notes.js";
 
@@ -36,7 +38,7 @@ yargs.command({
   },
   handler: (argv) => {
     // console.log("The title is", argv.title, "and the body is", argv.body);
-    note.addNote(argv.title, argv.body);
+    note.addNotes(argv.title, argv.body);
   },
 });
 
