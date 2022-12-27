@@ -13,8 +13,8 @@ const url =
 
 const request = require("request");
 
-request({ url: url }, function (error, response, body) {
-  const data = JSON.parse(response.body);
+request({ url: url, json: true }, function (error, response, body) {
+  //   const data = JSON.parse(response.body);
   console.log(data.current);
   //   console.error("error:", error); // Print the error if one occurred
   //   console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
