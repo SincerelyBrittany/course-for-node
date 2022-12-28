@@ -5,10 +5,14 @@ const Geocode = (address, callback) => {
   const positionstackUrl = `http://api.positionstack.com/v1/forward?access_key=${process.env.POSITION_STACK_APP_ACCESS_KEY}&query=${address}&limit=1`;
   postmanRequest({ url: positionstackUrl }, (error, response, body) => {
     const responseData = JSON.parse(response.body);
+
     if (error) {
       callback("Unable to connect to location services!", undefined);
-    } else if (responseData.error) {
-      console.log("here");
+    } else if (
+      responseData.error ||
+      responseData.data === undefined ||
+      responseData.data.length === 0
+    ) {
       callback("Unable to find location. Try another search.", undefined);
     } else {
       const latitude = responseData.data[0].latitude;

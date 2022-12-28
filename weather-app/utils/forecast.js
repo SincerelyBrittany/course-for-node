@@ -8,7 +8,8 @@ const Forecast = (latitude, longitude, callback) => {
     "&query=" +
     latitude +
     "," +
-    longitude;
+    longitude +
+    "&units=f";
 
   request({ url: url, json: true }, (error, { body }) => {
     if (error) {
