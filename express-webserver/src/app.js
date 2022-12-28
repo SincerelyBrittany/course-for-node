@@ -9,6 +9,9 @@ console.log(__filename, "filename");
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
 
+//app.set is defined in https://www.npmjs.com/package/hbs
+app.set("view engine", "hbs");
+
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
