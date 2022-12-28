@@ -57,3 +57,8 @@ Another 2 second timer
 
 `` npm init -y``
 ``npm i request@2.88.0 `` --depreciated, make sure to use https://www.npmjs.com/package/postman-request in the future!
+
+# API's used 
+
+https://weatherstack.com for weather 
+https://positionstack.com/documentation for GEOCODING

@@ -1,22 +1,37 @@
 import "./addRequire.js";
 
-const url =
-  "http://api.weatherstack.com/current?access_key=e93098eadf6fbfa1ee1bc4faff697897&query=37.8267,-122.4233";
+import Geocode from "./utils/geocode.js";
+import Forecast from "./utils/forecast.js";
 
-// const request = require("postman-request");
+const address = process.argv[2];
 
-// request("http://www.google.com", function (error, response, body) {
-//   console.log("error:", error); // Print the error if one occurred
-//   console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
-//   console.log("body:", body); // Print the HTML for the Google homepage.
+if (!address) {
+  console.log("Please provide an address");
+} else {
+  Geocode(address, (error, { latitude, longitude, location }) => {
+    if (error) {
+      return console.log(error);
+    }
+
+    Forecast(latitude, longitude, (error, forecastData) => {
+      if (error) {
+        return console.log(error);
+      }
+
+      console.log(location);
+      console.log(forecastData);
+    });
+  });
+}
+
+// const request = require("request");
+// const weatherstackUrl =
+//   "http://api.weatherstack.com/current?access_key=e93098eadf6fbfa1ee1bc4faff697897&query=37.8267,-122.4233";
+
+// request({ url: weatherstackUrl, json: true }, function (error, response, body) {
+//   //   const data = JSON.parse(response.body);
+//   console.log(response.body.current);
 // });
-
-const request = require("request");
-
-request({ url: url, json: true }, function (error, response, body) {
-  //   const data = JSON.parse(response.body);
-  console.log(response.body.current);
-});
 
 // const axios = require("axios");
 // const params = {
