@@ -10,7 +10,7 @@ const Forecast = (latitude, longitude, callback) => {
     "," +
     longitude;
 
-  request({ url, json: true }, (error, { body }) => {
+  request({ url: url, json: true }, (error, { body }) => {
     if (error) {
       callback("Unable to connect to weather service!", undefined);
     } else if (body.error) {
@@ -18,7 +18,6 @@ const Forecast = (latitude, longitude, callback) => {
     } else {
       callback(
         undefined,
-        // body.daily.data[0].summary +
         " It is currently " +
           body.current.temperature +
           " degress out. And it feels like " +
@@ -29,4 +28,3 @@ const Forecast = (latitude, longitude, callback) => {
 };
 
 export default Forecast;
-// module.exports = forecast;
