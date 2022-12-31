@@ -109,13 +109,11 @@ app.listen(port, () => {
 https://www.npmjs.com/package/handlebars
 
 using template engine to render Dynamic webpages using expreses/
-Handlebars will allow us to 1. allow render dynamic documents 2. is to easily create code that we can reuse around pages. Want to use handlebars with express so we should use this one:  
+Handlebars will allow us to 1. allow render dynamic documents 2. is to easily create code that we can reuse around pages. Want to use handlebars with express so we should use this one:
 
-#npm hbs 
+#npm hbs
 https://www.npmjs.com/package/hbs
 
-
-
 ```
-
+nodemon src/app.js -e js/hbs
 ```

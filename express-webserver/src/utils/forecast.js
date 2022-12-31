@@ -1,5 +1,7 @@
-const request = require("request");
-require("dotenv").config();
+// const request = require("request");
+import request from "request";
+import dotenv from "dotenv";
+dotenv.config();
 
 const Forecast = (latitude, longitude, callback) => {
   const url =

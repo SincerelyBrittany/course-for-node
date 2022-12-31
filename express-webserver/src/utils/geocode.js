@@ -1,5 +1,7 @@
-const postmanRequest = require("postman-request");
-require("dotenv").config();
+// const postmanRequest = require("postman-request");
+import postmanRequest from "postman-request";
+import dotenv from "dotenv";
+dotenv.config();
 
 const Geocode = (address, callback) => {
   const positionstackUrl = `http://api.positionstack.com/v1/forward?access_key=${process.env.POSITION_STACK_APP_ACCESS_KEY}&query=${address}&limit=1`;

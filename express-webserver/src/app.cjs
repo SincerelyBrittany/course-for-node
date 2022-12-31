@@ -1,11 +1,17 @@
-const path = require("path");
-const express = require("express");
-const hbs = require("hbs");
+// const path = require("path");
+import * as path from "path";
+import express from "express";
+// const express = require("express");
+import hbs from "hbs";
+// const hbs = require("hbs");
 const app = express();
 const port = 3000;
 
-console.log(__dirname, "dirname");
-console.log(__filename, "filename");
+import Geocode from "./utils/geocode.js";
+import Forecast from "./utils/forecast.js";
+
+console.log(path.__dirname, "dirname"); // https://bobbyhadz.com/blog/javascript-dirname-is-not-defined-in-es-module-scope
+console.log(path.__filename, "filename");
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -36,11 +42,29 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
-  if (!req.query.address) {
+  const address = req.query.address;
+  if (!address) {
     return res.send({
       error: "You must provide an address!",
     });
   }
+
+  Geocode(address, (error, { latitude, longitude, location } = {}) => {
+    if (error) {
+      return console.log(error);
+    }
+
+    // const { latitude, longitude, location } = response;
+
+    Forecast(latitude, longitude, (error, forecastData) => {
+      if (error) {
+        return console.log(error);
+      }
+
+      console.log(location);
+      console.log(forecastData);
+    });
+  });
 
   res.send({
     forecast: forecastData,
