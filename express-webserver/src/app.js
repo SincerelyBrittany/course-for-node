@@ -73,15 +73,15 @@ app.get("/weather", (req, res) => {
         return console.log(error);
       }
 
-      console.log(location);
-      console.log(forecastData);
-    });
-  });
+      res.send({
+        forecast: forecastData,
+        location,
+        address: req.query.address,
+      });
 
-  res.send({
-    forecast: forecastData,
-    location,
-    address: req.query.address,
+      // console.log(location);
+      // console.log(forecastData);
+    });
   });
 });
 
