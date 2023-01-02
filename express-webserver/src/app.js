@@ -1,5 +1,9 @@
+import "./addRequire.js";
+
 // const path = require("path");
-import * as path from "path";
+// import * as path from "path";
+import path from "path";
+import { fileURLToPath } from "url";
 import express from "express";
 // const express = require("express");
 import hbs from "hbs";
@@ -10,8 +14,16 @@ const port = 3000;
 import Geocode from "./utils/geocode.js";
 import Forecast from "./utils/forecast.js";
 
-console.log(path.__dirname, "dirname"); // https://bobbyhadz.com/blog/javascript-dirname-is-not-defined-in-es-module-scope
-console.log(path.__filename, "filename");
+// console.log(path.__dirname, "dirname"); // https://bobbyhadz.com/blog/javascript-dirname-is-not-defined-in-es-module-scope
+// console.log(path.__filename, "filename");
+
+// 👇️ "/home/borislav/Desktop/javascript/index.js"
+const __filename = fileURLToPath(import.meta.url);
+console.log(__filename);
+
+// 👇️ "/home/borislav/Desktop/javascript"
+const __dirname = path.dirname(__filename);
+console.log("directory-name 👉️", __dirname);
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
