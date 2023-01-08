@@ -20,14 +20,15 @@ weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const location = search.value;
 
-  paragraphOne.textContent = "no location found";
-  paragraphTwo.textContent = "no forecast found";
+  paragraphOne.textContent = "Loading";
+  paragraphTwo.textContent = ". . . .";
 
   fetch(`http://localhost:3000/weather?address=${location}`)
     .then((response) => response.json())
     .then((data) => {
       if (data.error) {
-        console.log(data.error);
+        paragraphOne.textContent = data.error;
+        paragraphTwo.textContent = "";
       } else {
         const { forecast, location, address } = data;
         console.log(forecast, location, address);
